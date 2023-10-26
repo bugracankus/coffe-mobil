@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../screens/Login';
 import HomePage from '../screens/HomePage';
+import ProductPage from '../screens/ProductPage';
 
 // ---- SCREENS ---- // 
 
@@ -13,7 +14,7 @@ const Stack = createStackNavigator();
 function MyStack() {
     return (
         <Stack.Navigator
-            initialRouteName='HomePage'
+            initialRouteName='ProductPage'
             screenOptions={{
                 headerShown: false
             }}
@@ -25,6 +26,10 @@ function MyStack() {
             <Stack.Screen
                 name="Login"
                 component={Login}
+            />
+              <Stack.Screen
+                name="ProductPage"
+                component={ProductPage}
             />
           
         </Stack.Navigator>

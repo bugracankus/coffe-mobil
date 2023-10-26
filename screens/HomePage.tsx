@@ -3,10 +3,11 @@ import { StyleSheet, View, Text, SafeAreaView, ImageBackground, Image, FlatList,
 import Layout from "../constants/Layout";
 import Products from "../components/Products";
 import Carousel from 'react-native-snap-carousel';
+import ButtomBar from "../components/ButtomBar";
 
 const HomePage = () => {
     const [title, setTitle]: any = useState(0);
-
+//---FlatList Data---//
     const DATA = [
         {
             id: 0,
@@ -33,7 +34,7 @@ const HomePage = () => {
             title: "Cappuccino",
         },
     ];
-
+//---Carousel Data---//
     const productData = [
         {
             id: 0,
@@ -67,7 +68,6 @@ const HomePage = () => {
                 <ImageBackground
                     source={require("../assets/images/beansBackground1.png")}
                     style={styles.backGround}>
-
                     <View style={styles.content}>
                         <Image
                             source={require("../assets/images/avatar.png")}
@@ -113,7 +113,8 @@ const HomePage = () => {
                         )}
                     />
                 </View>
-                <View style={{ justifyContent: "center", alignItems: "center", marginTop: 50, height:400}}>
+                
+                <View style={{ justifyContent: "center", alignItems: "center",marginTop: 50}}>
                     <Carousel
                         data={productData}
                         renderItem={({ item }: any) => (
@@ -125,11 +126,13 @@ const HomePage = () => {
                                 price={item.price}
                             />
                         )}
-                        sliderWidth={Layout.window.width * 1}
+                        sliderWidth={Layout.window.width}
                         itemWidth={Layout.window.width * 0.6}
                         loop
                     />
                 </View>
+                {/* //-------ButtomBar----// */}
+                <ButtomBar/>
             </View>
         </View>
     )
